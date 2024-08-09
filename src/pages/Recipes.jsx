@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import Title from "../components/Title";
+import AllRecipes from "../components/AllRecipes";
+import Loading from "../components/Loading";
 
-function Recipes() {
+function Recipes({ food, query }) {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
   return (
     <div>
-      <h1>those are recipes </h1>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div style={{ paddingTop: "20px" }}>
+          <h3 className="text-center fw-bold fs-2">
+            Make a choice and enjoy your{" "}
+            <span style={{ color: "#B66055" }}>food journey </span> with us!
+          </h3>
+          <Title title={""} />
+          <AllRecipes food={food} query={query} />
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Recipes
+export default Recipes;

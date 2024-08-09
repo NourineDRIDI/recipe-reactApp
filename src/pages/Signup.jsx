@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
-import signup from "../assets/sign up pic.png"
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 function Signup() {
    const [register, setRegister] = useState({
     name:"",

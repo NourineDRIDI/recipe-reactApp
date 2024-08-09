@@ -1,9 +1,12 @@
 import React from 'react'
+import OneCategory from './OneCategory'
 
-function AllCategories() {
+function AllCategories({category}) {
   return (
-    <div>
-      
+    <div className='d-flex flex-wrap justify-content-center gap-3 p-5'>
+      {category && category.map((e) => (
+        <OneCategory category={e} key={e.id} />
+      ))}
     </div>
   )
 }
