@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Lottie from "react-lottie";
 import { Link, useNavigate } from "react-router-dom";
-import knife from "../assets/lotties/wired-lineal-1600-knife.json"
+import chef from "../assets/lotties/Animation - 1723192168196.json"
 function Login() {
   const [login, setLogin] = useState({
     email: "",
@@ -31,16 +31,16 @@ function Login() {
     setLogin({ ...login, [name]: value });
   };
   return (
-    <div className="container d-flex align-items-center justify-content-center">
+    <div className="container d-flex align-items-center justify-content-center" style={{marginTop:50}}>
       <div className="card p-4 shadow" style={{ width: "400px" }}>
       <Lottie options={{
     loop: true,
     autoplay: true,
-    animationData: knife,
+    animationData: chef,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
-  }} height={150} width={150} />
+  }} height={150} width={250} />
         <h2 className="text-center mb-4">Login Now</h2>
       
        

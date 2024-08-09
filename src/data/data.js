@@ -1809,6 +1809,83 @@ export const recipes = [
         "createdDate": '2023-08-08'
     },  
 ]
-      
+
+
+// export const blogs = [
+//     {
+//       "id": 1,
+//       "title": 'The Art of Perfecting Homemade Pasta',
+//       "author': 'Nourine Dridi',
+//       "createdDate": '2024-08-10',
+//       "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145876/homemade_pasta.jpg",
+//       "content": "Making pasta from scratch is a rewarding experience that yields delicious results. In this blog, we'll explore tips and tricks to perfect your homemade pasta, from selecting the right ingredients to mastering the art of dough kneading and shaping.",
+//       "tags: [""Pasta", "Homemade", "Cooking Tips"]
+//     },
+//     {
+//       "id": 2,
+//       "title": "5 Easy Smoothie Recipes for a Healthy Start",
+//       "autho"r: "Nourine Dridi",
+//       "create"dDate: "2024-08-12",
+//       "imag"e: "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145874/smoothie_recipes.jpg",
+//       "content": "Smoothies are a quick and easy way to fuel your body with essential nutrients. In this blog, we'll share five delicious smoothie recipes that are perfect for breakfast or a post-workout snack.",
+//       "tags: [""Smoothies", "Healthy Eating", "Breakfast"]
+//     },
+//     {
+//       "id": 3,
+//       "title": "Exploring Tunisian Flavors: Traditional Dishes You Must Try",
+//       "autho"r: "Nourine Dridi",
+//       "create"dDate: "2024-08-15",
+//       "imag"e: "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145875/traditional_tunisian_dishes.jpg",
+//       "content": "Tunisian cuisine is a vibrant mix of Mediterranean flavors with a unique twist. In this blog, we'll take you on a culinary journey through Tunisia, highlighting must-try traditional dishes that showcase the rich culinary heritage of the region.",
+//       "tags: [""Tunisian Cuisine", "Traditional Dishes", "Cultural Heritage"]
+//     },
+//     {
+//       id: 4,
+//       "title": "Vegan Baking 101: Delicious Desserts Without Dairy or Eggs",
+//       "autho"r: "Nourine Dridi",
+//       "create"dDate: "2024-08-18",
+//       "imag"e: "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145876/vegan_baking.jpg",
+//       "content": "Vegan baking doesn't mean compromising on flavor or texture. In this blog, we'll share some of our favorite vegan dessert recipes that are sure to satisfy your sweet tooth, without any dairy or eggs.",
+//       "tags: [""Vegan", "Baking", "Desserts"]
+//     }
+//     {
+//         id: 5,
+//         "title": "The Evolution of Plant-Based Diets",
+//         "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723155876/plant_based_diets_lifw3u.jpg",
+//         "author": "Lisa Green",
+//         "date": "2024-07-15",
+//         "excerpt": "Explore the growing trend of plant-based diets, their health benefits, and delicious recipe ideas to get started.",
+//         "content": "Plant-based diets have gained immense popularity in recent years. This trend is not only driven by ethical and environmental concerns but also by the numerous health benefits associated with reducing meat consumption. In this blog post, we'll delve into the origins of plant-based eating, discuss its impact on health, and share some mouth-watering recipes to inspire your next meal."
+//     },
+//     {
+//         id: 6,
+//         "title": "How to Master Meal Prep",
+//         "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723155879/meal_prep_masters_sdfw8u.jpg",
+//         "author": "John Doe",
+//         "date": "2024-08-01",
+//         "excerpt": "Discover the art of meal prep with our comprehensive guide, including tips, tricks, and recipes for every lifestyle.",
+//         "content": "Meal prepping is a game-changer for those looking to save time, money, and effort in the kitchen. Whether you're a busy professional, a parent, or just someone looking to streamline your cooking process, meal prep can help you stay organized and eat healthier. In this blog, we'll walk you through the basics of meal prep, from choosing the right containers to planning your meals effectively. Plus, we'll provide some of our favorite meal prep recipes that are both delicious and easy to make.",
+//     },
+//     {
+//         "id": 7,
+//         "title": "Top 10 Superfoods to Incorporate into Your Diet",
+//         "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723155883/superfoods_list_bfddku.jpg",
+//         "author": "Emily Smith",
+//         "date": "2024-07-28",
+//         "excerpt": "Boost your nutrition with these top 10 superfoods that are packed with vitamins, minerals, and antioxidants.",
+//         "content": "Superfoods are nutrient-rich foods considered to be especially beneficial for health and well-being. In this blog post, we explore the top 10 superfoods you should consider adding to your diet. From berries and leafy greens to nuts and seeds, these foods can help improve your immune system, increase energy levels, and promote overall health. We'll also share some easy ways to incorporate these superfoods into your daily meals."
+//     },
+//     {
+//         id: 8,
+//         "title": "A Beginner’s Guide to Gluten-Free Baking",
+//         "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723155881/gluten_free_baking_kslvu2.jpg",
+//         "author": "Sophia Lee",
+//         "date": "2024-06-30",
+//         "excerpt": "Get started with gluten-free baking with our step-by-step guide and foolproof recipes for delicious treats.",
+//         "content": "Gluten-free baking can be a challenge, especially for those new to the concept. However, with the right ingredients and techniques, you can create delicious baked goods that everyone will love. In this guide, we'll cover the basics of gluten-free baking, including the best flour alternatives, common pitfalls to avoid, and tips for achieving the perfect texture. We'll also provide some beginner-friendly recipes to get you started on your gluten-free baking journey."
+//     }
+// ]
+
+  
     
     

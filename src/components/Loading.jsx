@@ -6,7 +6,7 @@ import knife from "../assets/lotties/wired-lineal-1600-knife.json";
 import { useSearchParams } from "react-router-dom";
 
 function Loading() {
-  // ? states
+  // ! states
   const [lottie, setLottie] = useState(false);
 
   //! variables and functions

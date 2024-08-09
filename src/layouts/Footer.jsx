@@ -20,7 +20,7 @@ function Footer() {
     setEmail("");
   };
   return (
-    <footer className="bg-light text-center text-lg-start p-2 d-flex align-items-center justify-content-center position-fixed w-100 bottom-0">
+    <footer className="bg-light text-center text-lg-start p-2 d-flex align-items-center justify-content-center position-fixed  w-100 bottom-0 " style={{zIndex:1}} >
       <div className="container">
         <div className="row justify-content-center text-center">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">

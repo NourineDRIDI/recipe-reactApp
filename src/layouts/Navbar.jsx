@@ -58,6 +58,11 @@ function Navbar({ setQuery }) {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link text-black" to={"/categories"}>
+                Categories
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link text-black" to={"/addrecipe"}>
                 Add Recipe
               </Link>

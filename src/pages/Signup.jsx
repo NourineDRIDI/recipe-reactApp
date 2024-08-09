@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 function Signup() {
    const [register, setRegister] = useState({
     name:"",
@@ -66,11 +67,7 @@ const handleSubmit=(event)=>{
                 <button type="submit" className="btn mt-2"  style={{backgroundColor: "#B66055", borderColor: "#B66055", color: "white"}} onClick={handleSubmit}>Create Account</button>
             </form>
             <hr/>
-            <div className='d-flex gap-3'><button className="btn btn-block text-center" style={{outline: "#B66055", borderColor: "#B66055", color:"#B66055"}}><i className="fab fa-google"></i> Sign in with
-                Google</button>
-            <button className="btn btn-block text-center" style={{outline: "#B66055", borderColor: "#B66055", color:"#B66055"}}><i className="fab fa-facebook"></i> Sign in with
-                Facebook</button></div>
-            <p className="mt-3">Already have an account? <a href="./login.html">Log in</a></p>
+            <p className="mt-3">Already have an account? <Link to="/login">Log in</Link></p>
         </div>
     </div>
 </div>

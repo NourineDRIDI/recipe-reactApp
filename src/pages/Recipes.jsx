@@ -8,6 +8,7 @@ function Recipes({ food, query }) {
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
+  console.log(food,"this is the food")
   return (
     <div>
       {loading ? (
