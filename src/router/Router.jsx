@@ -10,32 +10,35 @@ import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
 import Loading from "../components/Loading";
 import Home from "../pages/Home";
-import { datacategories, recipes } from "../data/data";
+import { blogs, datacategories, recipes } from "../data/data";
 import RecipeDetails from "../pages/RecipeDetails";
 import CategoryDetails from "../pages/CategoryDetails";
 import Categories from "../pages/Categories";
+import BlogDetails from "../pages/BlogDetails";
 
 
 function Router() {
     const [food,setFood]= useState(recipes)
     const[query,setQuery] = useState("")
     const [category,setCategory]=useState(datacategories)
+    const [myBlog,setMyBlog]=useState(blogs)
     const addNewRecipe = (newRecipe) => {
       setFood([...recipes,{id:recipes.at(-1).id+1   ,...newRecipe}])
-    };
+    }
       return (
     <BrowserRouter>
       <Navbar setQuery={setQuery}/>
       <div style={{paddingTop:"100px", paddingBottom:"170px"}}>
        
         <Routes>
-          <Route path="/" element={<Home food={food} query={query} category={category}/>} />
+          <Route path="/" element={<Home food={food} query={query} category={category} myBlog={myBlog} />} />
           <Route path="/recipes" element={<Recipes food={food} query = {query}/>} />
           <Route path="/categories" element={<Categories category={category}/>} />
           <Route path="/recipeDetails/:id" element={<RecipeDetails food={food} />} />
           <Route path="/categoryDetails/:id" element={<CategoryDetails category={category} food={food} />} />
           <Route path="/addrecipe" element={<AddRecipe addNewRecipe={addNewRecipe}/>} />
-          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs" element={<Blogs myBlog={myBlog}/>} />
+          <Route path="/blogDetails/:id" element={<BlogDetails myBlog={myBlog} />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

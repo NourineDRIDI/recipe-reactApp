@@ -2,7 +2,7 @@ import React from "react";
 import OneRecipe from "./OneRecipe";
 
 function AllRecipes({ food, query="" }) {
-  console.log(food, "foooodddd");
+  
 
   return (
     <div className="d-flex flex-wrap justify-content-center gap-2 p-3">

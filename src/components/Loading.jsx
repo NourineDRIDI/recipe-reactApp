@@ -18,7 +18,7 @@ function Loading() {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  //    useEffects
+  // !   useEffects
   useEffect(() => {
     setTimeout(() => {
       setLottie(true);

@@ -65,7 +65,7 @@ function AddRecipe({ addNewRecipe }) {
       servings: "",
       ingredients: "",
       instructions: "",
-      createdDate: "",
+      createdDate:(new Date()).toString().slice(0,24),
     });
     navigate("/recipes");
   };
@@ -97,7 +97,7 @@ function AddRecipe({ addNewRecipe }) {
           />
         </div>
         <div className="form-group d-flex flex-column align-items-center">
-          <label>Image URL</label>
+          <label>Upload your Image here</label>
 
           {recipe.image && (
             <img

@@ -6,42 +6,69 @@ import AllRecipes from "../components/AllRecipes";
 import AllCategories from "../components/AllCategories";
 import { Link } from "react-router-dom";
 import Partners from "../components/Partners";
+import AllBlogs from "../components/AllBlogs";
 
-function Home({food,query,category}) {
-  const [randomRecipes, setRandomRecipes] =useState(Array(10).fill(0,0))
+function Home({ food, query, category, myBlog, id }) {
+  const [randomRecipes, setRandomRecipes] = useState(Array(10).fill(0, 0));
+  const [randomCategories, setRandomCategories] = useState(Array(8).fill(0, 0));
+  const [randomBlogs, setRandomBlogs] = useState(Array(2).fill(0, 0));
   const [loading, setLoading] = useState(true);
-  
-  
-  
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
-  
-useLayoutEffect(()=>{
-  setRandomRecipes(randomRecipes.map(e=>food[Math.round(Math.random()*100)]))},[])
+
+  useLayoutEffect(() => {
+    setRandomRecipes(
+      randomRecipes.map((e) => food[Math.round(Math.random() * 100)])
+    );
+  }, []);
+  useLayoutEffect(() => {
+    setRandomCategories(
+      randomCategories.map((e) => category[Math.round(Math.random() * 19)])
+    );
+  }, []);
+  useLayoutEffect(() => {
+    setRandomBlogs(
+      randomBlogs.map((e) =>{ 
+        
+        let random = Math.round(Math.random() * 10)
+        console.log(random,"this is the index")
+    return     myBlog[random]
+      
+      })
+    );
+  }, []);
+  console.log(randomBlogs, "those are my blogs")
+
   return (
-  
-    <div>
+    <div >
       {loading ? (
         <Loading />
       ) : (
-        <div style={{ padding:35 }}>
+        <div style={{ padding: 50 }}>
           <Title title={"Trending recipes"} />
           <AllRecipes food={randomRecipes} query={query} />
           <Title title={"Trending Categories"} />
-          {category && category.length > 0 && 
-            <AllCategories category={category} />
-          }
-          <Title title={"Blogs"} />
-          <Title title={"Trending recipes"} />
-          <AllRecipes food={randomRecipes}/>
-          <Link to="/addrecipe">Add a New Recipe</Link>
-          <Partners/>
-        </div>)}
-    </div>    
-  )
+          {category && category.length > 0 && (
+            <AllCategories category={randomCategories} key={id} />
+          )}
+          <div>
+            <Title title={"Blogs"} />
+            {myBlog && myBlog.length > 0 ? (
+              <AllBlogs myBlog={randomBlogs} />
+            ) : (
+              <p>No blogs available</p>
+            )}
+          </div>
+          <Title title={"Explore our recipes"} />
+          <AllRecipes food={randomRecipes} />
+        
+          <Partners />
+        </div>
+      )}
+    </div>
+  );
 }
-
 
 export default Home;

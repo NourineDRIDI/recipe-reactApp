@@ -6,8 +6,6 @@ function CategoryDetails({ category, food }) {
   const { id } = useParams()
   const [filteredRecipes, setFilteredRecipes] = useState([])
   const [categoryP, setCategory] = useState(null)
-
-  console.log(fil,"foo");
   
 
   useEffect(() => {
@@ -15,7 +13,6 @@ function CategoryDetails({ category, food }) {
     setCategory(selectedCategory)
 
     const recipes = food.filter(item => item.categoryId=== parseInt(id))
-    console.log(recipes,"rec");
     
     setFilteredRecipes(recipes)
   }, [id, categoryP, food])

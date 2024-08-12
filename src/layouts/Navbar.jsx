@@ -68,8 +68,8 @@ function Navbar({ setQuery }) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-black" to={"/blog"}>
-                Blog
+              <Link className="nav-link text-black" to={"/blogs"}>
+                Blogs
               </Link>
             </li>
             <li className="nav-item d-flex align-items-center">
