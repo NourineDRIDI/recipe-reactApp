@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
 import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { TbToolsKitchen3 } from "react-icons/tb";
 
 function Navbar({ setQuery }) {
-  const user = JSON.parse(localStorage.getItem("connected"));
-  const [conectedUser, setConectedUser] = useState(false);
+  const user = JSON.parse(localStorage.getItem("connected"))
+  const [conectedUser, setConectedUser] = useState(false)
+  const navigate = useNavigate()
 
-  const navigate = useNavigate();
   const logOut = () => {
-    localStorage.removeItem("connected");
-    setConectedUser(false);
-    navigate("/login");
-  };
+    localStorage.removeItem("connected")
+    setConectedUser(false)
+    navigate("/login")
+  }
 
   const handleSearch = (event) => {
-    setQuery(event.target.value);
-  };
+    setQuery(event.target.value)
+  }
 
   useEffect(() => {
     if (user) setConectedUser(true);
   }, [user]);
+ 
 
   return (
     <nav
@@ -96,15 +95,20 @@ function Navbar({ setQuery }) {
 
           <div className="d-flex justify-content-end">
             {conectedUser ? (
-              <div className="d-flex gap-1 align-items-center">
+              <div className="d-flex gap-2 align-items-center">
                 <span>{user.name}</span>
                 <img
-                  src="https://img.freepik.com/premium-photo/3d-illustration-beautiful-girl-with-curly-hair-glasses_1057-147022.jpg"
-                  alt="profile"
+                  src={user.profilePicture}
+                  alt={user.name}
                   className="img-fluid rounded-circle"
                   width={60}
+                  height={60}
                 />
-                <button className="btn" onClick={logOut}>
+                <button className="btn"  style={{
+                      backgroundColor: "#B66055",
+                      borderColor: "#B66055",
+                      color: "white",
+                    }} onClick={logOut}>
                   Log out
                 </button>
               </div>

@@ -22,7 +22,7 @@ function Signup() {
     name: "",
     email: "",
     password: "",
-    profilePicture: null,
+    profilePicture:"",
   });
   const [loading, setLoading] = useState(true);
 
@@ -32,11 +32,14 @@ function Signup() {
 
   const handleChange = (event) => {
     const { name, value, type, files } = event.target;
+  
+    
     if (type === "file") {
       setRegister({
         ...register,
-        profilePicture: files[0], 
+        profilePicture: URL.createObjectURL(files[0]), 
       });
+    
     } else {
       setRegister({ ...register, [name]: value });
     }
@@ -52,26 +55,24 @@ function Signup() {
     }
 
     const users = localStorage.getItem("users");
-    const userToSave = {
-      ...register,
-      profilePicture: register.profilePicture
-        ? URL.createObjectURL(register.profilePicture)
-        : "", 
-    };
+    // const userToSave = {
+    //   ...register,
+    //   profilePicture: register.profilePicture, 
+    // };
 
     if (users) {
       const newUsers = JSON.parse(users);
-      localStorage.setItem("users", JSON.stringify([...newUsers, userToSave]));
+      localStorage.setItem("users", JSON.stringify([...newUsers, register]));
     } else {
-      localStorage.setItem("users", JSON.stringify([userToSave]));
+      localStorage.setItem("users", JSON.stringify([register]))
     }
-
+    localStorage.setItem("connected", JSON.stringify(register))
     alert(`User ${register.name} has been registered`);
     setRegister({
       name: "",
       email: "",
       password: "",
-      profilePicture: null,
+      profilePicture: "",
     });
   };
 
@@ -147,11 +148,13 @@ function Signup() {
                   <Typography>Upload your Profile Picture</Typography>
                   {register.profilePicture && (
                     <img
-                      src={URL.createObjectURL(register.profilePicture)}
+                      src={register.profilePicture}
                       alt="Profile Picture Preview"
                       loading="lazy"
                       width={300}
+                      height={300}
                       className="rounded-circle"
+                      style={{objectFit:"cover"}}
                     />
                   )}
                   <Button

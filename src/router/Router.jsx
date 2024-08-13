@@ -28,7 +28,7 @@ function Router() {
       return (
     <BrowserRouter>
       <Navbar setQuery={setQuery}/>
-      <div style={{paddingTop:"110px", paddingBottom:"210px"}}>
+      <div style={{paddingTop:"110px", paddingBottom:"200px"}}>
        
         <Routes>
           <Route path="/" element={<Home food={food} query={query} category={category} myBlog={myBlog} />} />

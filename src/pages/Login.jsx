@@ -15,6 +15,8 @@ function Login() {
     if (users) {
       let newUsers = JSON.parse(users);
       let account = newUsers.find((e) => e.email === login.email);
+
+      
       if (!account) {
         alert("wrong email");
       } else if (account.password === login.password) {
@@ -102,9 +104,6 @@ function Login() {
               >
                 Login
               </button>
-              {/* <div className="text-center mt-3">Or login with</div>
-                <button type="button" className="btn w-100 my-2 fw-bold"  style={{ backgroundColor: '#B66055', borderColor: '#B66055', color: 'white' }} >Sign in with google</button>
-                <button type="button" className="btn w-100 fw-bold"  style={{ backgroundColor: '#B66055', borderColor: '#B66055', color: 'white' }}>Sign in with facebook</button> */}
               <div className="text-center mt-3">
                 <span>
                   Not a member? <Link to="/signup">Sign up now</Link>

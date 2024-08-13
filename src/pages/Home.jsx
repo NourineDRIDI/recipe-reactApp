@@ -4,7 +4,6 @@ import Loading from "../components/Loading";
 import Title from "../components/Title";
 import AllRecipes from "../components/AllRecipes";
 import AllCategories from "../components/AllCategories";
-import { Link } from "react-router-dom";
 import Partners from "../components/Partners";
 import AllBlogs from "../components/AllBlogs";
 
@@ -14,7 +13,7 @@ function Home({ food, query, category, myBlog, id }) {
   const [randomBlogs, setRandomBlogs] = useState(Array(2).fill(0, 0));
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => { 
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
