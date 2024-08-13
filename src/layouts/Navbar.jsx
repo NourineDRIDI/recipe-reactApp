@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { TbToolsKitchen3 } from "react-icons/tb";
@@ -13,18 +14,22 @@ function Navbar({ setQuery }) {
   const logOut = () => {
     localStorage.removeItem("connected");
     setConectedUser(false);
+    navigate("/login");
   };
+
   const handleSearch = (event) => {
     setQuery(event.target.value);
   };
 
   useEffect(() => {
-    console.log(user, "this is the conencted user");
     if (user) setConectedUser(true);
   }, [user]);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100" style={{zIndex:3}}>
+    <nav
+      className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100"
+      style={{ zIndex: 3 }}
+    >
       <div className="container-fluid d-flex justify-content-between">
         <div className="d-flex justify-content-center align-items-center">
           <TbToolsKitchen3 style={{ width: "29px", height: "29px" }} />
@@ -34,6 +39,7 @@ function Navbar({ setQuery }) {
             </Link>
           </p>
         </div>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -45,8 +51,9 @@ function Navbar({ setQuery }) {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse fw-bold fs-6" id="navbarNav">
-          <ul className="navbar-nav mx-auto">
+          <ul className="navbar-nav mx-auto ">
             <li className="nav-item active">
               <Link className="nav-link text-black" to={"/"}>
                 Home
@@ -72,12 +79,16 @@ function Navbar({ setQuery }) {
                 Blogs
               </Link>
             </li>
-            <li className="nav-item d-flex align-items-center">
+            <li className="nav-item d-flex align-items-center gap-5 pb-3">
               <Link className="nav-link text-black" to={"/aboutus"}>
                 About us
               </Link>
-              <div>
-                <input type="search" onChange={handleSearch} />{" "}
+              <div> 
+                <input
+                  type="search"
+                  onChange={handleSearch}
+                  placeholder="Search"
+                />{" "}
                 <FaSearch size={23} color="#B66055" />
               </div>
             </li>
@@ -101,7 +112,7 @@ function Navbar({ setQuery }) {
               <div className="d-flex gap-1">
                 <div>
                   <Link
-                    className="btn btn-outline-dark  fw-bold fs-6"
+                    className="btn btn-outline-dark fw-bold fs-6"
                     to="/login"
                   >
                     Log in

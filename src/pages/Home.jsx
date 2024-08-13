@@ -51,12 +51,12 @@ function Home({ food, query, category, myBlog, id }) {
           <AllRecipes food={randomRecipes} query={query} />
           <Title title={"Trending Categories"} />
           {category && category.length > 0 && (
-            <AllCategories category={randomCategories} key={id} />
+            <AllCategories category={randomCategories} key={id} query={query}/>
           )}
           <div>
             <Title title={"Blogs"} />
             {myBlog && myBlog.length > 0 ? (
-              <AllBlogs myBlog={randomBlogs} />
+              <AllBlogs myBlog={randomBlogs} query={query}/>
             ) : (
               <p>No blogs available</p>
             )}
