@@ -4,10 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { TbToolsKitchen3 } from "react-icons/tb";
+import Box from "@mui/joy/Box";
+import Skeleton from "@mui/joy/Skeleton";
 
 function Navbar({ setQuery }) {
   const user = JSON.parse(localStorage.getItem("connected"));
   const [conectedUser, setConectedUser] = useState(false);
+  const [loginSkeleton, setLoginSkeleton] = useState(true);
 
   const navigate = useNavigate();
   const logOut = () => {
@@ -20,11 +23,15 @@ function Navbar({ setQuery }) {
 
   useEffect(() => {
     console.log(user, "this is the conencted user");
-    if (user) setConectedUser(true);
+    if (user)
+      setConectedUser(true), setTimeout(() => setLoginSkeleton(false), 1000);
   }, [user]);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100" style={{zIndex:3}}>
+    <nav
+      className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100"
+      style={{ zIndex: 3 }}
+    >
       <div className="container-fluid d-flex justify-content-between">
         <div className="d-flex justify-content-center align-items-center">
           <TbToolsKitchen3 style={{ width: "29px", height: "29px" }} />
@@ -85,18 +92,46 @@ function Navbar({ setQuery }) {
 
           <div className="d-flex justify-content-end">
             {conectedUser ? (
-              <div className="d-flex gap-1 align-items-center">
-                <span>{user.name}</span>
-                <img
-                  src="https://img.freepik.com/premium-photo/3d-illustration-beautiful-girl-with-curly-hair-glasses_1057-147022.jpg"
-                  alt="profile"
-                  className="img-fluid rounded-circle"
-                  width={60}
-                />
-                <button className="btn" onClick={logOut}>
-                  Log out
-                </button>
-              </div>
+              loginSkeleton ? (
+                <div>
+                  <Box
+                    sx={{
+                      m: "auto",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 2
+                    }}
+                  >
+                    <Skeleton variant="circular" width={48} height={48} />
+                    <div>
+                      <Skeleton
+                        variant="rectangular"
+                        width={200}
+                        height="1em"
+                        sx={{ mb: 1 }}
+                      />
+                      <Skeleton
+                        variant="rectangular"
+                        width={140}
+                        height="1em"
+                      />
+                    </div>
+                  </Box>
+                </div>
+              ) : (
+                <div className="d-flex gap-1 align-items-center">
+                  <span>{user.name}</span>
+                  <img
+                    src="https://img.freepik.com/premium-photo/3d-illustration-beautiful-girl-with-curly-hair-glasses_1057-147022.jpg"
+                    alt="profile"
+                    className="img-fluid rounded-circle"
+                    width={60}
+                  />
+                  <button className="btn" onClick={logOut}>
+                    Log out
+                  </button>
+                </div>
+              )
             ) : (
               <div className="d-flex gap-1">
                 <div>
@@ -114,7 +149,7 @@ function Navbar({ setQuery }) {
                     style={{
                       backgroundColor: "#B66055",
                       borderColor: "#B66055",
-                      color: "white",
+                      color: "white"
                     }}
                   >
                     Sign up
