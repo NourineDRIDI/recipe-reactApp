@@ -79,9 +79,6 @@ function Navbar({ setQuery }) {
               </Link>
             </li>
             <li className="nav-item d-flex align-items-center gap-5 pb-3">
-              <Link className="nav-link text-black" to={"/aboutus"}>
-                About us
-              </Link>
               <div> 
                 <input
                   type="search"

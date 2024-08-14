@@ -6,6 +6,9 @@ import AllRecipes from "../components/AllRecipes";
 import AllCategories from "../components/AllCategories";
 import Partners from "../components/Partners";
 import AllBlogs from "../components/AllBlogs";
+import NewsletterCard from "../components/NewsletterCard";
+import chefhome from "../assets/lotties/Animation - 1723618237840.json";
+import Lottie from "react-lottie";
 
 function Home({ food, query, category, myBlog, id }) {
   const [randomRecipes, setRandomRecipes] = useState(Array(10).fill(0, 0));
@@ -13,7 +16,7 @@ function Home({ food, query, category, myBlog, id }) {
   const [randomBlogs, setRandomBlogs] = useState(Array(2).fill(0, 0));
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => { 
+  useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
@@ -29,40 +32,59 @@ function Home({ food, query, category, myBlog, id }) {
   }, []);
   useLayoutEffect(() => {
     setRandomBlogs(
-      randomBlogs.map((e) =>{ 
-        
-        let random = Math.round(Math.random() * 10)
-        console.log(random,"this is the index")
-    return     myBlog[random]
-      
+      randomBlogs.map((e) => {
+        let random = Math.round(Math.random() * 10);
+        console.log(random, "this is the index");
+        return myBlog[random];
       })
     );
   }, []);
-  console.log(randomBlogs, "those are my blogs")
+  console.log(randomBlogs, "those are my blogs");
 
   return (
-    <div >
+    <div>
       {loading ? (
         <Loading />
       ) : (
         <div style={{ padding: 50 }}>
+          <div className="d-flex align-items-center justify-content-around">
+            <h1 className="fw-bold fs-1" style={{paddingLeft:80}}>
+              Your Daily Dish, A{" "}
+              <span className="fw-bold" style={{color: "#B66055"}}>
+                Food
+              </span>{" "}
+              Journey!
+            </h1>
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: chefhome,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              height={250}
+              width={350}
+            />
+          </div>
           <Title title={"Trending recipes"} />
           <AllRecipes food={randomRecipes} query={query} />
           <Title title={"Trending Categories"} />
           {category && category.length > 0 && (
-            <AllCategories category={randomCategories} key={id} query={query}/>
+            <AllCategories category={randomCategories} key={id} query={query} />
           )}
           <div>
             <Title title={"Blogs"} />
             {myBlog && myBlog.length > 0 ? (
-              <AllBlogs myBlog={randomBlogs} query={query}/>
+              <AllBlogs myBlog={randomBlogs} query={query} />
             ) : (
               <p>No blogs available</p>
             )}
           </div>
           <Title title={"Explore our recipes"} />
           <AllRecipes food={randomRecipes} />
-        
+          <NewsletterCard />
           <Partners />
         </div>
       )}
