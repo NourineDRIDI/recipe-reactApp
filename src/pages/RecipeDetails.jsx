@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaPrint } from "react-icons/fa";
 import { CiSaveDown2 } from "react-icons/ci";
 import { CiShare2 } from "react-icons/ci";
@@ -8,9 +8,10 @@ import Loading from "../components/Loading";
 function RecipeDetails({ food }) {
   const [recipe, setRecipe] = useState({});
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let founded = food.find((e) => e.id === +id);
+    const founded = food.find((e) => e.id === +id);
     setRecipe(founded);
   }, [id, food]);
 
@@ -27,19 +28,20 @@ function RecipeDetails({ food }) {
   const handlePrint = () => {
     window.print();
   };
-  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
+
   return (
-    <div> {loading ? ( 
-    <Loading/> ) : (
-      
-      <div className="container d-flex justify-content-center align-items-center gap-4 pb-5">
-        <div className="container d-flex justify-content-center align-items-center gap-4 pb-5">
+    <div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="container pb-5">
           <section className="recipe-body-1">
-            <div>
-              <div className="col-md-7">
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-7 mb-4">
                 <img
                   id="recipeImage"
                   alt={recipe.name}
@@ -48,29 +50,31 @@ function RecipeDetails({ food }) {
                   className="img-fluid"
                 />
               </div>
-              <div className="d-flex align-items-center justify-content-start p-3 gap-2">
-                <p id="recipeTimes">
-                  Preparation Time: {recipe.prepTime} | Cook Time:{" "}
-                  {recipe.cookTime} | Servings: {recipe.servings}
-                </p>
+              <div className="col-12">
+                <div className="d-flex align-items-center justify-content-center p-3 gap-2 flex-wrap">
+                  <p id="recipeTimes" className="fw-bold">
+                    Preparation Time: {recipe.prepTime} | Cook Time:{" "}
+                    {recipe.cookTime} | Servings: {recipe.servings}
+                  </p>
+                </div>
+                <h3>Ingredients:</h3>
+                <ul id="recipeIngredients">
+                  {recipe.ingredients &&
+                    recipe.ingredients.map((ingredient, index) => (
+                      <li key={index}>{ingredient}</li>
+                    ))}
+                </ul>
+                <h3>Instructions:</h3>
+                <ol id="recipeInstructions">
+                  {recipe.instructions &&
+                    recipe.instructions.map((instruction, index) => (
+                      <li key={index}>{instruction}</li>
+                    ))}
+                </ol>
               </div>
-              <h3>Ingredients:</h3>
-              <ul id="recipeIngredients">
-                {recipe.ingredients &&
-                  recipe.ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-              </ul>
-              <h3>Instructions:</h3>
-              <ol id="recipeInstructions">
-                {recipe.instructions &&
-                  recipe.instructions.map((instruction, index) => (
-                    <li key={index}>{instruction}</li>
-                  ))}
-              </ol>
             </div>
-            <div className="container mt-5" style={{ width: "650px" }}>
-              <div className="card p-3 b bg-body-secondary">
+            <div className="container mt-5">
+              <div className="card p-3 bg-body-secondary">
                 <img
                   id="recipeCardImage"
                   className="card-img-top"
@@ -80,12 +84,11 @@ function RecipeDetails({ food }) {
                 />
                 <div className="card-body">
                   <h5 id="recipeCardTitle" className="card-title">
-                    {recipe.name}
+                    {recipe.name} <hr/>
                   </h5>
-                  <p id="recipeCardAuthorDate" className="card-text"></p>
-                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <button
-                      className="btn save-favorite d-flex justify-content-between align-items-center"
+                      className="btn save-favorite d-flex justify-content-center align-items-center mb-2 mb-md-0"
                       style={{
                         backgroundColor: "#B66055",
                         borderColor: "#B66055",
@@ -97,7 +100,7 @@ function RecipeDetails({ food }) {
                       Save Favorite
                     </button>
                     <button
-                      className="btn share-recipe d-flex justify-content-between align-items-center"
+                      className="btn share-recipe d-flex justify-content-center align-items-center mb-2 mb-md-0"
                       style={{
                         backgroundColor: "#B66055",
                         borderColor: "#B66055",
@@ -109,7 +112,7 @@ function RecipeDetails({ food }) {
                       Share
                     </button>
                     <button
-                      className="btn print-recipe d-flex justify-content-between align-items-center"
+                      className="btn print-recipe d-flex justify-content-center align-items-center mb-2 mb-md-0"
                       style={{
                         backgroundColor: "#B66055",
                         borderColor: "#B66055",
@@ -132,8 +135,7 @@ function RecipeDetails({ food }) {
             </div>
           </section>
         </div>
-      </div>
-    )}
+      )}
     </div>
   );
 }
