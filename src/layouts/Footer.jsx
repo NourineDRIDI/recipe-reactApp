@@ -23,7 +23,7 @@ function Footer() {
 
   return (
     <footer
-      className="bg-light text-center pt-2 d-flex align-items-center justify-content-center position-fixed w-100 bottom-0"
+      className="bg-light text-center pt-2 d-flex align-items-center justify-content-center"
       style={{ zIndex: 1 }}
     >
       <div className="container d-none d-md-block d-flex align-items-center">

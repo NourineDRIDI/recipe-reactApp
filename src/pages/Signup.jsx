@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/joy/Button";
 import SvgIcon from "@mui/joy/SvgIcon";
 import { styled, Typography } from "@mui/joy";
@@ -26,10 +26,8 @@ function Signup() {
   });
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
 
+const navigate = useNavigate()
   const handleChange = (event) => {
     const { name, value, type, files } = event.target;
   
@@ -44,7 +42,6 @@ function Signup() {
       setRegister({ ...register, [name]: value });
     }
   };
-  console.log(register, "this is register");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -74,7 +71,14 @@ function Signup() {
       password: "",
       profilePicture: "",
     });
+    navigate("/")
+    
   };
+
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
 
   return (
     <div>

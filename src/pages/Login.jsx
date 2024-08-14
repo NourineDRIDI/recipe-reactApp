@@ -38,7 +38,7 @@ function Login() {
     setTimeout(() => setLoading(false), 1000);
   }, []);
   return (
-    <div>
+    <div style={{height:"70vh"}}>
       {loading ? (
         <Loading />
       ) : (
