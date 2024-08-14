@@ -4,6 +4,7 @@ import Button from "@mui/joy/Button";
 import SvgIcon from "@mui/joy/SvgIcon";
 import { styled, Typography } from "@mui/joy";
 import Loading from "../components/Loading";
+import axios from "axios";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -18,33 +19,35 @@ const VisuallyHiddenInput = styled("input")`
 `;
 
 function Signup() {
+  const [img, setImg] = useState("");
   const [register, setRegister] = useState({
     name: "",
     email: "",
     password: "",
-    profilePicture:"",
+    profilePicture: "",
   });
   const [loading, setLoading] = useState(true);
 
-
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleChange = (event) => {
     const { name, value, type, files } = event.target;
-  
-    
+
     if (type === "file") {
+      setImg(files[0]);
       setRegister({
         ...register,
-        profilePicture: URL.createObjectURL(files[0]), 
+        profilePicture: URL.createObjectURL(files[0]),
       });
-    
     } else {
       setRegister({ ...register, [name]: value });
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append("file", img);
+    formData.append("upload_preset", "ishobuom");
 
     if (register.password !== event.target.passwordrepeated.value) {
       alert("Passwords do not match");
@@ -54,16 +57,20 @@ const navigate = useNavigate()
     const users = localStorage.getItem("users");
     // const userToSave = {
     //   ...register,
-    //   profilePicture: register.profilePicture, 
+    //   profilePicture: register.profilePicture,
     // };
-
+    const response = await axios.post(
+      "https://api.cloudinary.com/v1_1/dzshhva9w/image/upload",
+      formData
+    );
+    
     if (users) {
       const newUsers = JSON.parse(users);
-      localStorage.setItem("users", JSON.stringify([...newUsers, register]));
+      localStorage.setItem("users", JSON.stringify([...newUsers, {...register,profilePicture:response.data["secure_url"]}]));
     } else {
-      localStorage.setItem("users", JSON.stringify([register]))
+      localStorage.setItem("users", JSON.stringify([{...register,profilePicture:response.data["secure_url"]}]));
     }
-    localStorage.setItem("connected", JSON.stringify(register))
+    localStorage.setItem("connected", JSON.stringify({...register,profilePicture:response.data["secure_url"]}));
     alert(`User ${register.name} has been registered`);
     setRegister({
       name: "",
@@ -71,10 +78,8 @@ const navigate = useNavigate()
       password: "",
       profilePicture: "",
     });
-    navigate("/")
-    
+    navigate("/");
   };
-
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
@@ -158,7 +163,7 @@ const navigate = useNavigate()
                       width={300}
                       height={300}
                       className="rounded-circle"
-                      style={{objectFit:"cover"}}
+                      style={{ objectFit: "cover" }}
                     />
                   )}
                   <Button
