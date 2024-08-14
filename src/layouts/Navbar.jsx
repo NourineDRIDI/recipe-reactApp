@@ -110,20 +110,15 @@ function Navbar({ setQuery }) {
                       gap: 2,
                     }}
                   >
+                    <Skeleton variant="rectangular" width={160} height="1em" />
+                    <Skeleton variant="circular" width={48} height={48} />
                     <div>
                       <Skeleton
                         variant="rectangular"
-                        width={200}
-                        height="1em"
-                        sx={{ mb: 1 }}
-                      />
-                      <Skeleton
-                        variant="rectangular"
-                        width={140}
+                        width={160}
                         height="1em"
                       />
                     </div>
-                    <Skeleton variant="circular" width={48} height={48} />
                   </Box>
                 ) : (
                   <div className="d-flex gap-2 align-items-center">
@@ -132,8 +127,7 @@ function Navbar({ setQuery }) {
                       src={user?.profilePicture}
                       alt={user?.name}
                       className="img-fluid rounded-circle"
-                      width={60}
-                      height={60}
+                      style={{ height: 60, width: 60 }}
                     />
                     <button
                       className="btn"

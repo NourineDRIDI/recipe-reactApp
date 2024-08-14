@@ -63,14 +63,31 @@ function Signup() {
       "https://api.cloudinary.com/v1_1/dzshhva9w/image/upload",
       formData
     );
-    
+
     if (users) {
       const newUsers = JSON.parse(users);
-      localStorage.setItem("users", JSON.stringify([...newUsers, {...register,profilePicture:response.data["secure_url"]}]));
+      localStorage.setItem(
+        "users",
+        JSON.stringify([
+          ...newUsers,
+          { ...register, profilePicture: response.data["secure_url"] },
+        ])
+      );
     } else {
-      localStorage.setItem("users", JSON.stringify([{...register,profilePicture:response.data["secure_url"]}]));
+      localStorage.setItem(
+        "users",
+        JSON.stringify([
+          { ...register, profilePicture: response.data["secure_url"] },
+        ])
+      );
     }
-    localStorage.setItem("connected", JSON.stringify({...register,profilePicture:response.data["secure_url"]}));
+    localStorage.setItem(
+      "connected",
+      JSON.stringify({
+        ...register,
+        profilePicture: response.data["secure_url"],
+      })
+    );
     alert(`User ${register.name} has been registered`);
     setRegister({
       name: "",
@@ -101,7 +118,10 @@ function Signup() {
               />
             </div>
             <div className="col-md-6">
-              <h2>Want to join our Family!</h2>
+              <h2>
+                Want to join our{" "}
+                <span style={{ color: "#B66055" }}>Family </span>!
+              </h2>
               <form id="signUpForm" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
@@ -114,43 +134,6 @@ function Signup() {
                     name="name"
                     required
                     onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    value={register.email}
-                    id="email"
-                    placeholder="Example123@gmail.com"
-                    name="email"
-                    required
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    value={register.password}
-                    id="password"
-                    placeholder="Password"
-                    name="password"
-                    required
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="passwordrepeated">Repeat Your Password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="passwordrepeated"
-                    placeholder="Repeat Your Password"
-                    name="passwordrepeated"
-                    required
                   />
                 </div>
                 <div className="form-group d-flex flex-column align-items-center">
@@ -197,6 +180,44 @@ function Signup() {
                     />
                   </Button>
                 </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={register.email}
+                    id="email"
+                    placeholder="Example123@gmail.com"
+                    name="email"
+                    required
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    value={register.password}
+                    id="password"
+                    placeholder="Password"
+                    name="password"
+                    required
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="passwordrepeated">Repeat Your Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="passwordrepeated"
+                    placeholder="Repeat Your Password"
+                    name="passwordrepeated"
+                    required
+                  />
+                </div>
+
                 <div className="form-group form-check">
                   <input
                     type="checkbox"

@@ -4,6 +4,10 @@ import Button from "@mui/joy/Button";
 import SvgIcon from "@mui/joy/SvgIcon";
 import { styled } from "@mui/joy";
 import Loading from "../components/Loading";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { datacategories } from "../data/data";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -59,7 +63,7 @@ function AddRecipe({ addNewRecipe }) {
     addNewRecipe(newRecipe);
     setRecipe({
       name: "",
-      categoryId: "",
+      category: "",
       image: "",
       prepTime: "",
       cookTime: "",
@@ -81,9 +85,11 @@ function AddRecipe({ addNewRecipe }) {
       {loading ? (
         <Loading />
       ) : (
-        <div className="container d-flex flex-column justify-content-center align-items-center">
-          <h2>Add New <span style={{ color: "#B66055" }}>Recipe</span></h2>
-          <form onSubmit={handleSubmit}>
+        <div className="container d-flex flex-column justify-content-center align-items-center ">
+          <h2>
+            Add New <span style={{ color: "#B66055" }}>Recipe</span>
+          </h2>
+          <form onSubmit={handleSubmit} >
             <div className="form-group">
               <label>Recipe Name</label>
               <input
@@ -95,15 +101,42 @@ function AddRecipe({ addNewRecipe }) {
                 required
               />
             </div>
-            <div className="form-group">
-              <label>Category</label>
-              <input
-                type="text"
-                name="category"
-                className="form-control"
-                value={recipe.category}
-                onChange={handleChange}
-                required
+            <div className="m-3">
+              <Autocomplete
+                id="category-select"
+                sx={{ width: 400 }}
+                options={datacategories}
+                autoHighlight
+                getOptionLabel={(option) => option.name}
+                renderOption={(props, option) => {
+                  const { key, ...optionProps } = props;
+                  return (
+                    <Box
+                      key={key}
+                      component="li"
+                      sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
+                      {...optionProps}
+                    >
+                      <img
+                        loading="lazy"
+                        width="20"
+                        src={option.image} 
+                        alt={option.name}
+                      />
+                      {option.name}
+                    </Box>
+                  );
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Choose a category"
+                    inputProps={{
+                      ...params.inputProps,
+                      autoComplete: "new-password", 
+                    }}
+                  />
+                )}
               />
             </div>
             <div className="form-group d-flex flex-column align-items-center">
@@ -209,7 +242,7 @@ function AddRecipe({ addNewRecipe }) {
             </div>
             <button
               type="submit"
-              className="btn fw-bold fs-6 text-center "
+              className="btn fw-bold fs-6 text-center mt-3"
               style={{
                 backgroundColor: "#B66055",
                 borderColor: "#B66055",
