@@ -33,8 +33,7 @@ function Footer() {
             <h5 className="text-uppercase fs-5">Perfect<span style={{ color: "#B66055" }}>Recipe</span></h5>
             <p className="fs-6">
               The purpose of lorem ipsum is to create a natural looking block of
-              text (sentence, paragraph, page, etc.) that doesn't distract from
-              the layout.
+              text.
             </p>
           </div>
           <div className=" col-md-6 mb-4 mb-md-0">
