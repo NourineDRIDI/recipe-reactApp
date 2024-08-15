@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { TbToolsKitchen3 } from "react-icons/tb";
 import Box from "@mui/joy/Box";
 import Skeleton from "@mui/joy/Skeleton";
+import '../navbar.css'
 
 function Navbar({ setQuery }) {
   const user = JSON.parse(localStorage.getItem("connected"));

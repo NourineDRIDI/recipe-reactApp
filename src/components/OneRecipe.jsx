@@ -20,7 +20,7 @@ function OneRecipe({ recipe }) {
     <div>
       {skeleton ? (
         <Stack spacing={2} useFlexGap>
-          <Card variant="outlined" sx={{ width: 343 }}>
+          <Card variant="outlined" sx={{ width: 380 }}>
             <CardContent orientation="horizontal"></CardContent>
             <AspectRatio ratio="21/9">
               <Skeleton animation="wave" variant="overlay">
@@ -40,7 +40,7 @@ function OneRecipe({ recipe }) {
       ) : (
         <div
           className="card card-style"
-          style={{ width: "18rem" }}
+          style={{ width: "18rem", height : "18rem" }}
           onClick={() => navigate(`/recipeDetails/${recipe.id}`)}
         >
           <img
@@ -54,7 +54,7 @@ function OneRecipe({ recipe }) {
             <p className="card-title fs-6">{recipe.name}</p>
             <Link
               to={`/recipeDetails/${recipe.id}`}
-              className="btn btn-outline-dark"
+              className="btn btn-outline-light"
               style={{
                 borderColor: "#B66055",
                 color: "#B66055",
