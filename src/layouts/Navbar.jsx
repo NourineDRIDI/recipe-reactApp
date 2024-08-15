@@ -47,7 +47,7 @@ function Navbar({ setQuery }) {
     <div>
       <nav
         className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100"
-        style={{ zIndex: 3 }}
+        style={{ zIndex: 99 }}
       >
         <div className="container-fluid d-flex justify-content-between">
           <div className="d-flex justify-content-center align-items-center">
