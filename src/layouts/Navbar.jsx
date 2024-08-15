@@ -5,31 +5,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { TbToolsKitchen3 } from "react-icons/tb";
 import Box from "@mui/joy/Box";
 import Skeleton from "@mui/joy/Skeleton";
-import '../navbar.css'
-
 function Navbar({ setQuery }) {
   const user = JSON.parse(localStorage.getItem("connected"));
   const [conectedUser, setConectedUser] = useState(false);
   const [skelton, setSkelton] = useState(true);
   const navigate = useNavigate();
-
   const logOut = () => {
     localStorage.removeItem("connected");
     setConectedUser(false);
     navigate("/login");
   };
-
   const handleSearch = (event) => {
     setQuery(event.target.value);
   };
-
   useEffect(() => {
     if (user) {
       setConectedUser(true);
       setTimeout(() => setSkelton(false), 2000);
     }
   }, [user]);
-
   return (
     <div>
       <nav
@@ -45,7 +39,6 @@ function Navbar({ setQuery }) {
               </Link>
             </p>
           </div>
-
           <button
             className="navbar-toggler"
             type="button"
@@ -57,7 +50,6 @@ function Navbar({ setQuery }) {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-
           <div
             className="collapse navbar-collapse fw-bold fs-6 "
             id="navbarNav"
@@ -99,7 +91,6 @@ function Navbar({ setQuery }) {
                 </div>
               </li>
             </ul>
-
             <div className="d-flex justify-content-end">
               {conectedUser ? (
                 skelton ? (
@@ -116,10 +107,18 @@ function Navbar({ setQuery }) {
                     <div>
                       <Skeleton
                         variant="rectangular"
-                        width={160}
+                        width={200}
+                        height="1em"
+                        sx={{ mb: 1 }}
+                      />
+                      <Skeleton
+                        variant="rectangular"
+                        width={140}
+                        
                         height="1em"
                       />
                     </div>
+                    <Skeleton variant="circular" width={48} height={48} />
                   </Box>
                 ) : (
                   <div className="d-flex gap-2 align-items-center">
@@ -175,5 +174,4 @@ function Navbar({ setQuery }) {
     </div>
   );
 }
-
 export default Navbar;

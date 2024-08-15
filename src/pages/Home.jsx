@@ -46,10 +46,11 @@ function Home({ food, query, category, myBlog, id }) {
       {loading ? (
         <Loading />
       ) : (
-        <div style={{ padding: 50 }}>
+        <div style={{ padding: 50 }} >
           <div className="d-flex align-items-center justify-content-around">
-            <h1 className="fw-bold fs-1" style={{paddingLeft:80}}>
-              Your Daily Dish, A{" "}
+          
+            <h1 className="fw-bold fs-1 display-4 col-lg-6 text-center" style={{paddingLeft:80}}>
+              Your Daily Dish, A
               <span className="fw-bold" style={{color: "#B66055"}}>
                 Food
               </span>{" "}
@@ -66,6 +67,7 @@ function Home({ food, query, category, myBlog, id }) {
               }}
               height={250}
               width={350}
+              className="col-lg-6"
             />
           </div>
           <Title title={"Trending recipes"} />
