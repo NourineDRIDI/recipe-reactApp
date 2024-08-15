@@ -5,11 +5,17 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { TbToolsKitchen3 } from "react-icons/tb";
 import Box from "@mui/joy/Box";
 import Skeleton from "@mui/joy/Skeleton";
-import '../navbar.css'
+import "../navbar.css";
 function Navbar({ setQuery }) {
-  const user = JSON.parse(localStorage.getItem("connected"));
+
+
   const [conectedUser, setConectedUser] = useState(false);
   const [skelton, setSkelton] = useState(true);
+  const [path, setPath] = useState(location.href.split("/").at(-1));
+  const [clicked, setClicked] = useState(false);
+
+
+  const user = JSON.parse(localStorage.getItem("connected"));
   const navigate = useNavigate();
   const logOut = () => {
     localStorage.removeItem("connected");
@@ -19,12 +25,24 @@ function Navbar({ setQuery }) {
   const handleSearch = (event) => {
     setQuery(event.target.value);
   };
+
+  const notShow = () => {
+    setClicked(true)
+  }
+
+
   useEffect(() => {
     if (user) {
       setConectedUser(true);
       setTimeout(() => setSkelton(false), 2000);
     }
   }, [user]);
+  useEffect(() => {
+    setPath(location.href.split("/").at(-1));
+  }, [location.href.split("/").at(-1)]);
+
+
+
   return (
     <div>
       <nav
@@ -48,35 +66,39 @@ function Navbar({ setQuery }) {
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={() => setClicked(false)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse fw-bold fs-6 "
+            className={`collapse navbar-collapse fw-bold fs-6 `}
+            style = {{
+              display : clicked && "none"
+            }}
             id="navbarNav"
           >
             <ul className="navbar-nav mx-auto d-flex ">
-              <li className="nav-item active">
+              <li className={`nav-item ${path === "" && "active"}`} onClick={notShow}>
                 <NavLink className="nav-link text-black" to={"/"}>
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item ">
+              <li className={`nav-item ${path === "recipes" && "active"}`} onClick={notShow}>
                 <NavLink className="nav-link text-black" to={"/recipes"}>
                   Recipes
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className={`nav-item ${path === "categories" && "active"}`} onClick={notShow}>
                 <NavLink className="nav-link text-black" to={"/categories"}>
                   Categories
                 </NavLink>
               </li>
-              <li className="nav-item ">
+              <li className={`nav-item ${path === "addrecipe" && "active"}`}onClick={notShow}>
                 <NavLink className="nav-link text-black" to={"/addrecipe"}>
                   Add Recipe
                 </NavLink>
               </li>
-              <li className="nav-item ">
+              <li className={`nav-item ${path === "blogs" && "active"}`}onClick={notShow}>
                 <NavLink className="nav-link text-black" to={"/blogs"}>
                   Blogs
                 </NavLink>
@@ -115,7 +137,6 @@ function Navbar({ setQuery }) {
                       <Skeleton
                         variant="rectangular"
                         width={140}
-                        
                         height="1em"
                       />
                     </div>
@@ -171,7 +192,7 @@ function Navbar({ setQuery }) {
             </div>
           </div>
         </div>
-      </nav>{" "}
+      </nav>
     </div>
   );
 }
