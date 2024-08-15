@@ -12,8 +12,8 @@ function Blogs({myBlog, query=""}) {
       {loading ? (
         <Loading />
       ) : (
-        <div style={{ paddingTop: "20px" }}>
-          <h3 className="text-center fw-bold fs-2">
+        <div className="d-flex flex-wrap" style={{ paddingTop: "20px" }}>
+          <h3 className="text-center  fw-bold fs-2">
           Explore our diverse blog collection and enhance your{" "}
             <span style={{ color: "#B66055" }}>culinary adventures</span> with us!
           </h3>

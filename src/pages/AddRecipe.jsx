@@ -104,7 +104,7 @@ function AddRecipe({ addNewRecipe }) {
             <div className="m-3">
               <Autocomplete
                 id="category-select"
-                sx={{ width: 400 }}
+                sx={{ width: 300 }}
                 options={datacategories}
                 autoHighlight
                 getOptionLabel={(option) => option.name}

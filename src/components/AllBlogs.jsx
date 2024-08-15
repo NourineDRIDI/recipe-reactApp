@@ -30,9 +30,9 @@ function AllBlogs({ myBlog, query = "" }) {
   return (
     <div>
       {skeleton ? (
-        <div className="d-flex justify-content-center align-items-center" style={{gap:30}} > 
+        <div className="d-flex flex-wrap justify-content-center align-items-center" style={{gap:30}} > 
           <Stack spacing={2} useFlexGap>
-            <Card variant="outlined" sx={{ width: 450 }}>
+            <Card variant="outlined" sx={{ width: 300 }}>
               <CardContent orientation="horizontal"></CardContent>
               <AspectRatio ratio="21/9">
                 <Skeleton animation="wave" variant="overlay">
@@ -50,7 +50,7 @@ function AllBlogs({ myBlog, query = "" }) {
             </Card>
           </Stack>
           <Stack spacing={2} useFlexGap>
-            <Card variant="outlined" sx={{ width: 450 }}>
+            <Card variant="outlined" sx={{ width: 300 }}>
               <CardContent orientation="horizontal"></CardContent>
               <AspectRatio ratio="21/9">
                 <Skeleton animation="wave" variant="overlay">
@@ -85,13 +85,13 @@ function AllBlogs({ myBlog, query = "" }) {
             .map((blog) => (
               <MDBCard
                 key={blog?.id}
-                style={{ maxWidth: "500px", minWidth: "500px" }}
+                style={{ maxWidth: "300px", minWidth: "300px" }}
               >
                 <MDBCardImage
                   src={blog?.image}
                   alt={blog?.title}
                   position="top"
-                  style={{ height: "200px", objectFit: "cover" }}
+                  style={{ height: "180px", objectFit: "cover" }}
                 />
                 <MDBCardBody>
                   <MDBCardTitle>{blog?.title}</MDBCardTitle>
