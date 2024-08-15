@@ -19,7 +19,7 @@ function OneRecipe({ recipe }) {
   return (
     <div>
       {skeleton ? (
-        <Stack spacing={2} useFlexGap>
+        <Stack spacing={2} useFlexGap style={{zindex: 1}}>
           <Card variant="outlined" sx={{ width: 380 }}>
             <CardContent orientation="horizontal"></CardContent>
             <AspectRatio ratio="21/9">

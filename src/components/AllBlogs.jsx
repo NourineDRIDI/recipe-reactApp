@@ -76,6 +76,7 @@ function AllBlogs({ myBlog, query = "" }) {
             flexWrap: "wrap",
             gap: "16px",
             justifyContent: "center",
+            
           }}
         >
           {myBlog

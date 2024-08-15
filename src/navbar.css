@@ -3,6 +3,7 @@ ul {
   padding: 0;
   list-style: none;
   display: flex;
+  flex: wrap;
   gap: 1rem;
   font-size: 1.2rem;
   isolation: isolate;
@@ -62,7 +63,6 @@ ul:not(#_) li:nth-child(5):before{bottom: -.5px}
 body {
   margin: 0;
   min-height: 100vh;
-  display: grid;
   place-content: center;
   background: #f2f2f2;
   font-family: system-ui, sans-serif;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaSearch } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { TbToolsKitchen3 } from "react-icons/tb";
 import Box from "@mui/joy/Box";
 import Skeleton from "@mui/joy/Skeleton";
+import '../navbar.css'
 function Navbar({ setQuery }) {
   const user = JSON.parse(localStorage.getItem("connected"));
   const [conectedUser, setConectedUser] = useState(false);
@@ -56,29 +57,29 @@ function Navbar({ setQuery }) {
           >
             <ul className="navbar-nav mx-auto d-flex ">
               <li className="nav-item active">
-                <Link className="nav-link text-black" to={"/"}>
+                <NavLink className="nav-link text-black" to={"/"}>
                   Home
-                </Link>
+                </NavLink>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link text-black" to={"/recipes"}>
+              <li className="nav-item ">
+                <NavLink className="nav-link text-black" to={"/recipes"}>
                   Recipes
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-black" to={"/categories"}>
+                <NavLink className="nav-link text-black" to={"/categories"}>
                   Categories
-                </Link>
+                </NavLink>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link text-black" to={"/addrecipe"}>
+              <li className="nav-item ">
+                <NavLink className="nav-link text-black" to={"/addrecipe"}>
                   Add Recipe
-                </Link>
+                </NavLink>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link text-black" to={"/blogs"}>
+              <li className="nav-item ">
+                <NavLink className="nav-link text-black" to={"/blogs"}>
                   Blogs
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item d-flex align-items-center gap-5">
                 <div>

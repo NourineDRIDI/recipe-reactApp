@@ -16,6 +16,7 @@ function OneCategory({ category, id }) {
           <Box
             className="d-flex flex-column"
             sx={{ m: "auto", display: "flex", alignItems: "center", gap: 2 }}
+            
           >
             <Skeleton variant="circular" width={250} height={250} />
             <div>
