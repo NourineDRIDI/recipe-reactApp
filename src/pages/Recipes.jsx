@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import Title from "../components/Title";
 import AllRecipes from "../components/AllRecipes";
 import Loading from "../components/Loading";
+import { useSelector } from "react-redux";
 
 function Recipes({ food, query }) {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
+const loading = useSelector(state=>state.recipes.loading)
+ 
   console.log(food,"this is the food")
   return (
     <div>

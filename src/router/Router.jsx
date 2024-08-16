@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Recipes from "../pages/Recipes";
 import AddRecipe from "../pages/AddRecipe";
@@ -15,17 +15,26 @@ import RecipeDetails from "../pages/RecipeDetails";
 import CategoryDetails from "../pages/CategoryDetails";
 import Categories from "../pages/Categories";
 import BlogDetails from "../pages/BlogDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRecipe } from "../store/recipeSlice";
 
 
 function Router() {
-    const [food,setFood]= useState(recipes)
+ const food = useSelector(state=>state.recipes.recipes)
     const[query,setQuery] = useState("")
     const [category,setCategory]=useState(datacategories)
     const [myBlog,setMyBlog]=useState(blogs)
+    
+    const dispatch = useDispatch()
+    console.log(food,"this is the food ")
     const addNewRecipe = (newRecipe) => {
       setFood([...recipes,{id:recipes.at(-1).id+1   ,...newRecipe}])
     }
-      return (
+   
+   useEffect(()=>{
+dispatch(fetchRecipe())
+   },[])
+    return (
     <BrowserRouter>
       <Navbar setQuery={setQuery}/>
       <div style={{paddingTop:"110px", paddingBottom:"10px"}}>

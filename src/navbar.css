@@ -15,12 +15,12 @@ ul li a {
   line-height: 1.6;
 }
 ul:before {
-  content:"";
+  content:"🥪";
   position: absolute;
   z-index: -1;
   position-anchor: --li;
-  background: #B66055;
-  height: .4em;
+  /* background-color: #B66055 !important; */
+  height: 1em;
   border-radius: 5em;
   inset: auto 
     calc(anchor(center) - .2em) 
@@ -37,7 +37,7 @@ ul li:before {
   z-index: -1;
   inset: 100% 50% 0;
   border-radius: 50%;
-  background: #B66055;
+  color: #B66055 !important;
   transition: .2s;
 }
 ul li:is(:hover,.active):before {

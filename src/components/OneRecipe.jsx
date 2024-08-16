@@ -10,6 +10,7 @@ import Typography from "@mui/joy/Typography";
 
 function OneRecipe({ recipe }) {
   const [skeleton, setSkeleton] = useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -45,7 +46,7 @@ function OneRecipe({ recipe }) {
         >
           <img
             src={
-              loading
+              skeleton
                 ? "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                 : recipe.image
             }
