@@ -28,16 +28,16 @@ function Router() {
       return (
     <BrowserRouter>
       <Navbar setQuery={setQuery}/>
-      <div style={{paddingTop:"100px", paddingBottom:"170px"}}>
+      <div style={{paddingTop:"110px", paddingBottom:"10px"}}>
        
         <Routes>
           <Route path="/" element={<Home food={food} query={query} category={category} myBlog={myBlog} />} />
           <Route path="/recipes" element={<Recipes food={food} query = {query}/>} />
-          <Route path="/categories" element={<Categories category={category}/>} />
+          <Route path="/categories" element={<Categories category={category} query={query}/>} />
           <Route path="/recipeDetails/:id" element={<RecipeDetails food={food} />} />
-          <Route path="/categoryDetails/:id" element={<CategoryDetails category={category} food={food} />} />
+          <Route path="/categoryDetails/:id" element={<CategoryDetails category={category} food={food} query={query}/>} />
           <Route path="/addrecipe" element={<AddRecipe addNewRecipe={addNewRecipe}/>} />
-          <Route path="/blogs" element={<Blogs myBlog={myBlog}/>} />
+          <Route path="/blogs" element={<Blogs myBlog={myBlog} query={query}/>} />
           <Route path="/blogDetails/:id" element={<BlogDetails myBlog={myBlog} />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />

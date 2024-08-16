@@ -3,7 +3,7 @@ import Title from "../components/Title";
 import Loading from "../components/Loading";
 import AllCategories from '../components/AllCategories';
 
-function Categories({category}) {
+function Categories({category, query}) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
@@ -19,7 +19,7 @@ function Categories({category}) {
             <span style={{ color: "#B66055" }}>food journey </span> with us!
           </h3>
           <Title title={""} />
-          <AllCategories category={category} />
+          <AllCategories category={category} query={query} />
         </div>
       )}
     </div>

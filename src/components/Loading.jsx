@@ -26,7 +26,7 @@ function Loading() {
   }, []);
 //    ! conditional rendrenig */
   return (
-    <div style={{marginTop:"100px"}}>
+    <div style={{height:"100vh"}}>
       {lottie ? (
         <Lottie
           options={{
