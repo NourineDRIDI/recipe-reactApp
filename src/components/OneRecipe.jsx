@@ -10,6 +10,7 @@ import Typography from "@mui/joy/Typography";
 
 function OneRecipe({ recipe }) {
   const [skeleton, setSkeleton] = useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,7 +45,11 @@ function OneRecipe({ recipe }) {
           onClick={() => navigate(`/recipeDetails/${recipe.id}`)}
         >
           <img
-            src={recipe.image}
+            src={
+              skeleton
+                ? "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                : recipe.image
+            }
             className="card-img-top card-img-top-style"
             alt={recipe.name}
             loading="lazy"

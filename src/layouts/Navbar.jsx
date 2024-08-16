@@ -6,6 +6,8 @@ import { TbToolsKitchen3 } from "react-icons/tb";
 import Box from "@mui/joy/Box";
 import Skeleton from "@mui/joy/Skeleton";
 import "../navbar.css";
+import { useDispatch } from "react-redux";
+import { searchRecipe } from "../store/recipeSlice";
 function Navbar({ setQuery }) {
 
 
@@ -17,6 +19,7 @@ function Navbar({ setQuery }) {
 
   const user = JSON.parse(localStorage.getItem("connected"));
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const logOut = () => {
     localStorage.removeItem("connected");
     setConectedUser(false);
@@ -107,7 +110,7 @@ function Navbar({ setQuery }) {
                 <div>
                   <input
                     type="search"
-                    onChange={handleSearch}
+                    onChange={(event)=>dispatch(searchRecipe(event.target.value))}
                     placeholder="Search"
                   />{" "}
                   <FaSearch size={23} color="#B66055" />
