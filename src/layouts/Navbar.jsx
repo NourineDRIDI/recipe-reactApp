@@ -6,6 +6,8 @@ import { TbToolsKitchen3 } from "react-icons/tb";
 import Box from "@mui/joy/Box";
 import Skeleton from "@mui/joy/Skeleton";
 import "../navbar.css";
+import { useDispatch } from "react-redux";
+import { searchRecipes } from "../store/recipesSlice";
 function Navbar({ setQuery }) {
 
 
@@ -23,13 +25,13 @@ function Navbar({ setQuery }) {
     navigate("/login");
   };
   const handleSearch = (event) => {
-    setQuery(event.target.value);
+    dispatch(searchRecipes(event.target.value))
   };
 
   const notShow = () => {
     setClicked(true)
   }
-
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (user) {

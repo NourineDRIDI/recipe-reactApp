@@ -1,18 +1,27 @@
-import React from "react";
-import OneRecipe from "./OneRecipe";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-function AllRecipes({ food, query="" }) {
+import OneRecipe from "./OneRecipe";
+import { fetchRecipes, searchRecipes } from "../store/recipesSlice";
+import Loading from "./Loading";
+
+function AllRecipes({ query = "" }) {
+  const dispatch = useDispatch();
+  const {recipes} = useSelector((state) => state.recipes);
+
+  useEffect(() => {
+    dispatch(fetchRecipes());
+  }, [dispatch]);
+
   
+
+ 
 
   return (
     <div className="d-flex flex-wrap justify-content-center gap-2 p-3">
-      {food
-        .filter((e) => {
-          return e?.name?.toLowerCase().includes(query?.toLowerCase())
-        })
-        .map((e, i) => {
-          return <OneRecipe recipe={e} key={e.id} />;
-        })}
+      {recipes.map((e, i) => {
+        return <OneRecipe recipe={e} key={e.id} />;
+      })}
     </div>
   );
 }
