@@ -4,17 +4,20 @@ import Navbar from "./layouts/Navbar";
 import SideBar from "./layouts/SideBar";
 import Footer from "./layouts/Footer";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  const [toggle, setToggle]= useState(true)
-
+  const [toggle, setToggle] = useState(true);
 
   return (
     <div>
-      <SideBar toggle={toggle} setToggle={setToggle}/>
-      <div style={{paddingLeft: toggle ? 200 : 50 }} >
+      <SideBar toggle={toggle} setToggle={setToggle} />
+      <div style={{ paddingLeft: toggle ? 200 : 50 }}>
         <Navbar />
-        <Footer/>
+        <div style={{ paddingTop: "150px", paddingLeft: "100px" }}>
+          <Outlet />
+        </div>
+        <Footer />
       </div>
     </div>
   );

@@ -2,9 +2,10 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className='bg-success position-fixed bottom-0 w-100'>
+    <footer className='bg-light position-fixed bottom-0 w-100 text-center'>
       <div>
-        <p>this is footer for perfect recipe</p></div>
+        <p className="navbar-brand text-black fw-bold fs-5" >
+        Perfect<span style={{ color: "#B66055" }}>Recipe</span></p></div>
     </footer>
   )
 }
