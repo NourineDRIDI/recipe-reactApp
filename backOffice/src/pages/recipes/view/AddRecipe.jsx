@@ -3,7 +3,7 @@ import React from 'react'
 function AddRecipe() {
   return (
     <div>
-      add recipes
+      this is for add recipes
     </div>
   )
 }

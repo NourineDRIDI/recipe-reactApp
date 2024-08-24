@@ -23,7 +23,7 @@ function Router() {
           <Route path="recipes" element={<Recipes />} >
           <Route index element={<RecipesList />} />
           <Route path="addrecipes" element={<AddRecipe />} />
-          <Route path="recipedetails" element={<RecipesDetails />} />
+          <Route path="recipedetails/:id" element={<RecipesDetails />} />
           
           </Route>
           <Route path="categories" element={<Categories />} />

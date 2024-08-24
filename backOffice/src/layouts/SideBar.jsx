@@ -12,11 +12,11 @@ function SideBar({ setToggle, toggle }) {
   return (
     <div
       className="bg-light position-fixed d-flex flex-column justify-content-between align-items-center h-100 p-3 "
-      style={{ width: toggle ? 200 : 70 }}
+      style={{ width: toggle ? 200 : 80 }}
     >
       <div>
         <div className="d-flex align-items-center justify-content-center ">
-          <TbToolsKitchen3 size={10} />
+          <TbToolsKitchen3 size={20} />
           {toggle && (
             <p className="mt-3 mr-5">
               <Link className="navbar-brand text-black fw-bold fs-5" to={"/"}>
@@ -39,17 +39,48 @@ function SideBar({ setToggle, toggle }) {
         <div>
           <ul>
             <li>
-              <MdDashboard /> {toggle && <Link to={"/"}>Dashbord</Link>}
+              <MdDashboard />{" "}
+              {toggle && (
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={"/"}
+                >
+                  Dashbord
+                </Link>
+              )}
             </li>
             <li>
-              <FaUsers /> {toggle && <Link to={"users"}>Users</Link>}
-            </li>
-            <li>
-              <BiSolidDish /> {toggle && <Link to={"recipes"}>Recipes</Link>}
+              <BiSolidDish />{" "}
+              {toggle && (
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={"recipes"}
+                >
+                  Recipes
+                </Link>
+              )}
             </li>
             <li>
               <MdCategory />{" "}
-              {toggle && <Link to={"categories"}>Categories</Link>}
+              {toggle && (
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={"categories"}
+                >
+                  Categories
+                </Link>
+              )}
+            </li>
+            <li>
+              <FaUsers />{" "}
+              {toggle && (
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={"users"}
+                >
+                  Users
+                </Link>
+              )}
             </li>
           </ul>
         </div>

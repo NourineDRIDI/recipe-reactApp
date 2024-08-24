@@ -14,7 +14,7 @@ function App() {
       <SideBar toggle={toggle} setToggle={setToggle} />
       <div style={{ paddingLeft: toggle ? 200 : 50 }}>
         <Navbar />
-        <div style={{ paddingTop: "150px", paddingLeft: "100px" }}>
+        <div style={{ paddingTop: "150px", paddingLeft: "100px", paddingRight:"100px" }}>
           <Outlet />
         </div>
         <Footer />

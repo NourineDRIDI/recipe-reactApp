@@ -1,0 +1,21 @@
+[
+    { "id": 1, "name": "Breakfast recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723025219/breakfast_xyaar9.jpg" },
+    { "id": 2, "name": "Lunch recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723025220/lunch_ehi6wk.jpg" },
+    { "id": 3, "name": "Dinner recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723025219/dinner_i2ps35.jpg" },
+    { "id": 4, "name": "Appetizer recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723025218/appetizer_w1hn1m.webp" },
+    { "id": 5, "name": "Salad recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723025223/salad_kep1j3.png" },
+    { "id": 6, "name": "Pizza recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723025221/pizza_iekclv.jpg" },
+    { "id": 7, "name": "Smoothie recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723025224/smoothie_n05srz.jpg" },
+    { "id": 8, "name": "Pasta recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723025221/pasta_brnjcc.jpg" },
+    { "id": 9, "name": "Soup recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145877/Soopes_i3fdah.jpg" },
+    { "id": 10,"name": "Dessert recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145879/desserts_flwfzg.jpg" },
+    { "id": 11,"name": "Vegan recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145882/vegan_mxs6dp.jpg" },
+    { "id": 12,"name": "Seafood recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145875/seaFood_e6st95.jpg" },
+    { "id": 13,"name": "Grill recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145875/grilledfood_htnk4x.jpg" },
+    { "id": 14,"name": "Baking recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145875/Oven-baked_foenwu.jpg" },
+    { "id": 15,"name": "Slow cooker recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145876/Slow-Cooker_jjxaef.jpg" },
+    { "id": 16,"name": "Gluten-free recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145876/gluten-free_r39jn1.jpg" },
+    { "id": 17,"name": "Cocktail recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145879/cocktails_ty1x67.jpg" },
+    { "id": 18,"name": "Snack recipes", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145874/snacks_akpndp.jpg" },
+    { "id": 19,"name": "Traditional Tunisian Kitchen", "image": "https://res.cloudinary.com/dzshhva9w/image/upload/v1723145875/traditionalTN_y2iz83.jpg" }
+]

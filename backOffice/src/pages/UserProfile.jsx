@@ -6,7 +6,7 @@ import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
-import {Remy} from "../assets/Profile_-_Remy_29.webp"
+
 
 function UserProfile() {
   return (
@@ -66,7 +66,7 @@ function UserProfile() {
         >
           <AspectRatio flex ratio="1" maxHeight={182} sx={{ minWidth: 182 }}>
           <img
-            src={Remy}
+            src="https://res.cloudinary.com/dzshhva9w/image/upload/v1724346527/Profile_-_Remy_29_zn96hn.webp"
             loading="lazy"
             alt=""
           />

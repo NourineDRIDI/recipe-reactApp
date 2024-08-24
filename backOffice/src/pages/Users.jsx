@@ -3,8 +3,10 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import { IoEyeSharp } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
+import useRecipeStore from "../zustandStore/recipeStore";
 
 function Users() {
+
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
