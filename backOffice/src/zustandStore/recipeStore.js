@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import axios from "axios" 
 import { api } from '../config'
 let useRecipeStore = create((set)=>({
-    recipes : [],
+    recipes : [], 
     oneRecipe : {},
     loading : true,
     fetch : async () =>{

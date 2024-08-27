@@ -17,7 +17,7 @@ import useRecipeStore from "../../../zustandStore/recipeStore";
 
 
 function RecipesList() {
-  const {recipes,loadnig,fetch} = useRecipeStore((state)=>state)
+  const {recipes,fetch} = useRecipeStore((state)=>state)
   console.log(recipes,"this is my store")
   const [open, setOpen] = React.useState(false);
 
