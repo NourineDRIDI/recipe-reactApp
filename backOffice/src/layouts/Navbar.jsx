@@ -45,7 +45,7 @@ function Navbar() {
                 textDecoration: "none",
                 color: "black",
               }}
-              to={"userprofile"}
+              to={"mainUserProfile"}
             >
               <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
                 <Badge
@@ -81,7 +81,7 @@ function Navbar() {
                 />
                 <Avatar variant="solid" />
               </Box>
-              <h3> UserName</h3>
+              <h3> Admin</h3>
             </Link>
           </div>
           <div>
@@ -99,7 +99,7 @@ function Navbar() {
                       textDecoration: "none",
                       color: "black",
                     }}
-                  to ={"userprofile"}>
+                  to ={"mainUserProfile"}>
                     My Profile
                   </Link>
                 </MenuItem>

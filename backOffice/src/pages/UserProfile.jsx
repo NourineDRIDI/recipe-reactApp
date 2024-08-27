@@ -5,7 +5,7 @@ import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
-import Sheet from "@mui/joy/Sheet";
+import Sheet from "@mui/joy/Sheet"; 
 
 
 function UserProfile() {
@@ -59,7 +59,7 @@ function UserProfile() {
               minWidth:
                 "clamp(0px, (calc(var(--stack-point) - 2 * var(--Card-padding) - 2 * var(--variant-borderWidth, 0px)) + 1px - 100%) * 999, 100%)",
             },
-            // make the card resizable for demo
+            
             overflow: "auto",
             resize: "horizontal",
           }}
@@ -75,7 +75,7 @@ function UserProfile() {
             {" "}
             <div className="d-flex flex-column align-items-center justify-content-center p-3">
               <Typography fontSize="xl" fontWeight="lg">
-                UserName
+               Remy Ratatouille 
               </Typography>
               <Typography
                 level="body-sm"
